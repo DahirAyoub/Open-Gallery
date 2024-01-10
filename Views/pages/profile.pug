@@ -1,0 +1,26 @@
+html
+  head
+    title User Profile
+  body
+    include ../partials/patronHeader
+    br
+    br
+    br
+    .profile-container
+      .profile-header
+        h2#username #{User.username}
+        .account-type-toggle
+            input(type="radio", id="artist-account", name="accountType", value="artist")
+            label(for="artist-account") Artist Account
+            input(type="radio", id="patron-account", name="accountType", value="patron")
+            label(for="patron-account") Patron Account
+      .profile-body
+        button#liked-artwork Liked Artwork
+        button#reviews Reviews
+        button#workshops-enrolled-in Workshops Enrolled In
+        .following-dropdown
+          button.dropbtn Following
+          .dropdown-content
+            each artist in User.followedArtists
+              a(href=`/user/${artist._id}`) #{artist.username}
+    script(src="/profile.js")

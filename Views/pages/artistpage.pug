@@ -1,0 +1,27 @@
+html 
+    head 
+        title Artist Page 
+    body 
+    include ../partials/patronHeader
+    
+    h2.artistUser #{artist.username} Page
+    div.content-section
+        h3.section-title Artworks
+        div.artwork-grid
+            each artwork in artworks
+                a.artwork-card(href="/artwork/" + artwork._id)
+                    figure
+                        img.artwork-image(src=artwork.Poster alt=artwork.Title)
+                        figcaption
+                            h3.artwork-title #{artwork.Title}
+    div.content-section
+        h3.section-title Workshops
+        div.workshop-grid
+            each workshop in workshops
+                a.workshop-card(href="/workshop/" + workshop._id)
+                    figure
+                        img.workshop-image(src=workshop.poster alt=workshop.name)
+                        figcaption
+                            h3.workshop-title #{workshop.name}
+                            p.workshop-description #{workshop.description}
+                            p.workshop-time Time: #{workshop.time}

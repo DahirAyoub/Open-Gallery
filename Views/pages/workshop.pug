@@ -1,0 +1,31 @@
+html
+  head
+    title Workshop Details
+  body
+    include ../partials/patronHeader
+    main.workshop-detail-container
+      .wrapper
+        .left-col
+          .post
+            .info
+              .user
+                a(href='/User/' + artist._id) #{artist.username}
+            img.workshop-image(src=workshop.poster alt=workshop.name)
+            .workshop-content
+             
+              p.title Name: #{workshop.name}
+              p.category Description: #{workshop.description}
+              p.medium Time: #{workshop.dateCreated}
+              
+              .enrolled-container
+                span.enrolled Enrolled: #{workshop.enrolled.length}
+                button.enrolled-btn Enroll
+              
+              .enrolled-section
+                h2 Enrolled Users
+                each enrollee in workshop.enrolled
+                  .enrolled
+                    .info
+                        p.username #{enrollee.username}
+                       
+        

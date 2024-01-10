@@ -1,0 +1,19 @@
+html 
+    head 
+        title Add Artwork
+    body 
+        include ../partials/patronHeader
+    
+    h1 Add Artwork
+
+        form(method="post" action="/workshop")
+            label(for="Name") Name:
+            input(type="text", name="Name", id="Name")
+
+            label(for="Description") Description:
+            input(type="Description", name="Description", id="Description")
+
+            label(for="Poster") Poster:
+            input(type="Poster", name="Poster", id="Poster")
+
+            input(type="submit",value="Add",id="") 

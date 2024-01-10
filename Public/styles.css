@@ -1,0 +1,739 @@
+body {
+    margin: 0;
+    padding-top: 0px; 
+    background-color: #333; 
+    /* color: #f0f0f0; */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; 
+    width: 100%;
+    padding: 20px 5%; 
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    height: 40px;
+}
+
+.name {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5%; 
+}
+
+.navbar {
+    margin-right:7%; 
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px; 
+    position: relative;
+}
+.navbar form{
+    display: inline-block;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.1s ease;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 2%; 
+    }
+    .name {
+        margin-left: 2%; 
+        font-size: 24px; 
+    }
+    .navbar {
+        margin-right: 2%; 
+    }
+    .navbar a {
+        padding: 10px 5px; 
+        font-size: 16px; 
+    }
+}
+
+.slider-frame {
+    overflow: hidden;
+    height: 800px;
+    width: 1200px;
+    margin: 20px auto; 
+}
+
+.slide-images {
+    width: 3600px; 
+    height: 800px;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+
+
+.img-container {
+    position: relative;
+    height: 800px;
+    width: 1200px;
+    float: left;
+   
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+}
+
+.title-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    z-index: 10; 
+    width: 100%; 
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+
+h1,h2 {
+    font-size: 28px;
+    color: #fff; 
+    text-align: center; 
+    margin-top: 100px;
+}
+
+.searchResults{
+    text-align: center;
+    margin-top: 1000px;
+}
+.artwork-grid {
+    margin: 80px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 20px;
+}
+
+.artwork-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #444; 
+    border: none;
+
+}
+
+.artwork-card figure {
+    margin: 0;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.artwork-image {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+}
+
+figcaption {
+    padding: 10px;
+    flex-shrink: 0; 
+}
+
+.artwork-title {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.artwork-artist {
+    font-size: 0.9em;
+    color: #666;
+}
+.artwork-card {
+    transition: transform 0.3s ease;
+}
+
+.artwork-card:hover {
+    transform: scale(1.05); 
+}
+
+.pagination {
+    text-align: center;
+    padding: 20px;
+}
+
+.pagination-button {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.artwork-title, .artwork-artist {
+    color: #fff; 
+}
+
+
+button, input[type="submit"] {
+    background-color:#222;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    font-size: 16px; 
+    margin: 15px;
+}
+
+label {
+    color: #fff;
+    font-size: 14px; 
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 16px; 
+}
+.artwork-detail-container {
+    max-width: 600px;
+    margin: 100px auto;
+    color: #fff; 
+}
+
+.post {
+    width: 100%;
+    background: #242424; 
+    border: 1px solid #444; 
+    margin-top: 40px;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.info .user {
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.user a {
+    color:#fff;
+    margin: 10px;
+}
+.user{
+    height: 20px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-content .likes {
+    font-weight: bold;
+    color: #f9a825; 
+}
+
+.post-content .description {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.post-content .description span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+.reviews-section {
+    border-top: 1px solid #444; 
+    padding: 10px 20px;
+}
+
+.reviews-section .review {
+    margin-top: 10px;
+    color: #ddd; 
+}
+
+.review-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #444; 
+}
+
+.review-box {
+    flex-grow: 1;
+    margin: 0 10px;
+    border: 1px solid #555; 
+    background: #333; 
+    color: #fff;
+    outline: none;
+}
+
+.review-btn {
+    background: #f9a825;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 12px; 
+    border-radius: 4px; 
+    opacity: 0.9; 
+}
+
+.review-btn:hover {
+    opacity: 1; 
+}
+
+.workshop-grid {
+    margin: 80px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.workshop-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #444; 
+    border: none;
+}
+
+.workshop-card figure {
+    margin: 0;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.workshop-image {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+}
+
+figcaption {
+    padding: 10px;
+    flex-shrink: 0; 
+}
+
+.workshop-title {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.workshop-description {
+    font-size: 1em;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.workshop-time {
+    font-size: 0.9em;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.workshop-card:hover {
+    transform: scale(1.05); 
+}
+.content-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+.artistUser{
+    font-size: 46px;
+}
+
+.likes-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+.like-btn {
+    padding: 5px 10px;
+    background-color: #f9a825;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.like-btn:hover {
+    opacity: 0.8;
+}
+
+
+
+.workshop-detail-container {
+    max-width: 600px;
+    margin: 100px auto;
+    color: #fff; 
+}
+
+.post {
+    width: 100%;
+    background: #242424; 
+    border: 1px solid #444; 
+    margin-top: 40px;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.info .user {
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.user a {
+    color:#fff;
+    margin: 10px;
+}
+.user{
+    margin-top: 50px;
+    height: 20px;
+}
+
+.workshop-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.workshop-content {
+    padding: 20px;
+}
+
+.post-content .enrolled {
+    font-weight: bold;
+    color: #f9a825; 
+}
+
+.workshop-content .enrolled {
+    font-weight: bold;
+    color: #f9a825; 
+}
+
+.enrolled-section {
+    border-top: 1px solid #444; 
+    padding: 10px 20px;
+}
+
+.enrolled-section .enrolled {
+    margin-top: 10px 0 auto auto;
+    color: #ddd; 
+    
+}
+
+.enrolled-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+.enrolled-btn {
+    padding: 5px 10px;
+    background-color: #f9a825;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.enrolled-btn:hover {
+    opacity: 0.8;
+}
+.profile-container {
+    margin-top: 50px;
+    max-width: 800px;
+    margin: auto; 
+    background-color: #444; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .profile-header {
+    margin-top: 70px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 15px; 
+    margin-bottom: 15px; 
+  }
+  
+  #username {
+    font-size: 28px; 
+    color: #fff; 
+    margin: 0; 
+    padding-bottom: 10px; 
+  }
+  
+  .account-type-toggle {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+  }
+  
+  .account-type-toggle input[type="radio"] {
+    display: none; 
+  }
+  
+  .account-type-toggle label {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #555; 
+    color: #f5f5f5; 
+    border: 1px solid #666; 
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; 
+  }
+  
+
+  .account-type-toggle input[type="radio"]:checked + label {
+    background-color: orange; 
+    color: #fff;
+    border-color: orange;
+  }
+  
+  
+  .profile-body button {
+    display: block; 
+    width: 100%; 
+    padding: 10px 15px; 
+    margin-top: 10px; 
+    background-color: #555; 
+    color: #f5f5f5; 
+    border: 1px solid #666; 
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .profile-body button:hover {
+    background-color: #666;
+  }
+  
+  .following-dropdown {
+    position: relative; 
+    display: block; 
+  }
+  
+  .dropbtn {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #555; 
+    color: #fff; 
+    border: 1px solid #666; 
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0; 
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%; 
+    background-color: #444; 
+    min-width: 100%; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 2; 
+    margin-top: -1px; 
+  }
+  
+  .dropdown-content a {
+    color: #fff; 
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #555; 
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #555; 
+  }
+  
+  
+  .following-dropdown:hover .dropdown-content,
+  .dropdown-content:hover {
+    display: block;
+}
+
+
+.auth-container {
+    max-width: 400px; 
+    margin: 100px auto; 
+    background-color: #222; 
+    padding: 40px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+  
+  .auth-title {
+    text-align: center;
+    color: #fff;
+    font-size: 24px; 
+    margin-bottom: 30px; 
+  }
+  
+  .auth-form-group {
+    margin-bottom: 20px; 
+  }
+  
+  .auth-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 16px; 
+  }
+  
+  .auth-input,
+  .auth-input[type='text'],
+  .auth-input[type='password'],.auth-input[type='text'] {
+    width: 100%;
+    padding: 12px 20px; 
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333; 
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .auth-form-group.active .auth-input:focus,
+.auth-input:focus {
+  color: #000 !important;
+  border-color: #50a3a2; 
+}
+  
+  .auth-button {
+    background-color: #222;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; 
+    transition: background-color 0.3s;
+    font-size: 16px;
+    width: 100%; 
+  }
+  
+  .auth-button:hover {
+    background-color: #444; 
+  }
+  
+  .auth-link {
+    color: #50a3a2;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 20px; 
+    font-size: 14px; 
+  }
+  
+  .auth-link:hover {
+    text-decoration: underline;
+  }
+
+  input[type="text"],
+  input[type="Artist"],
+  input[type="Category1"],
+  input[type="Description"],
+  input[type="Poster"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #f5f5f5;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: #fff;
+      font-size: 16px;
+  }
+  

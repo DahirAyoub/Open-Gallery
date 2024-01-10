@@ -1,0 +1,17 @@
+header.header
+    a(href="/",class="name") Open Gallery
+    nav.navbar 
+        a(href="/") Home
+        a(href="/artwork") Artworks
+        a(href="/search") Search
+        a(href="/profile") Profile
+        if User && User.role==='Artist'
+            a(href="/artwork/addArtwork") Add Artwork 
+            a(href="/artwork/addWorkshop") Add Workshop 
+        if User
+            form(method="POST",action="/logout") 
+                input(type='submit',value='Log Out')
+        else
+            form(method="POST",action="/login") 
+                a(href="login") Log In
+link(rel="stylesheet" href="/styles.css")

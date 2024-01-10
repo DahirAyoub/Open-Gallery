@@ -1,0 +1,31 @@
+html 
+    head 
+        title Add Artwork
+    body 
+        include ../partials/patronHeader
+    
+    h1 Add Artwork
+
+        form(method="post" action="/artwork")
+            label(for="Title") Title:
+            input(type="text", name="Title", id="Title")
+
+            label(for="Year") Year:
+            input(type="text", name="Year", id="Year")
+            
+            label(for="category") Category:
+            input(type="text", name="Category", id="category")
+
+            label(for="Medium") Medium:
+            input(type="text", name="Medium", id="Medium")
+
+            label(for="Description") Description:
+            input(type="Description", name="Description", id="Description")
+
+            label(for="Poster") Poster:
+            input(type="Poster", name="Poster", id="Poster")
+
+            label(for="category") Category:
+            input(type="text", name="Category", id="category")
+
+            input(type="submit",value="Add",id="") 

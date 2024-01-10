@@ -1,0 +1,15 @@
+html 
+    head
+        title Home Page 
+    body 
+        include ../partials/patronHeader
+        h2 Featured Artwork
+        div.slider-frame
+            div.slide-images
+                each art in artArray
+                    div.img-container.slide
+                        img(src=art.Poster)
+                        h3.title-overlay #{art.Title}
+   
+                
+        script(src="/slideshow.js") 

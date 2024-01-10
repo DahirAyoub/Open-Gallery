@@ -1,0 +1,16 @@
+html
+  head
+    title Registration Page
+  body
+    include ../partials/patronHeader
+    .auth-container.auth-register-container
+      h2.auth-title Register
+      form.auth-form#register-form(action='/register', method='POST')
+        .auth-form-group
+          label.auth-label(for='username') Username
+          input.auth-input#username(type='text', name='username', required)
+        .auth-form-group
+          label.auth-label(for='password') Password
+          input.auth-input#password(type='password', name='password', required)
+        button.auth-button#register-button(type='submit') Sign Up
+      a.auth-link(href='/login') Already have an account? Login here.

@@ -1,0 +1,40 @@
+html
+  head
+    title Artwork Details
+  body
+    include ../partials/patronHeader
+    main.artwork-detail-container
+      .wrapper
+        .left-col
+          .post
+            .info
+              .user
+                a(href='/User/' + artwork.Artist._id) #{artwork.Artist.username}
+            img.post-image(src=artwork.Poster alt=artwork.Title)
+            .post-content
+             
+              p.title Title: #{artwork.Title}
+              p.category Category: #{artwork.Category}
+              p.medium Medium: #{artwork.Medium}
+              p.description
+                span Description:
+                | #{artwork.Description}
+            
+              p Year: #{artwork.Year}
+              .likes-container
+                span.likes Likes: #{artwork.likes}
+                if User.likedArtworks.includes(artwork._id.toString())
+                  button.like-btn#like-btn Liked
+                else
+                  button.like-btn#like-btn Like
+              .reviews-section
+                h2 Reviews
+                each review in reviews
+                  .review
+                    .info
+                        p.username #{review.Artist.username}
+                        p.comment-text #{review.reviewText}
+              .review-wrapper
+                input.review-box(name='review' placeholder='Add a Review...')
+                button.review-btn#post-btn Post
+      script(src="/artworkview.js")

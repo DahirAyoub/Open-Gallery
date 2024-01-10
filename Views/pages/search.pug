@@ -1,0 +1,19 @@
+html 
+    head 
+        title Artwork Search 
+    body 
+        include ../partials/patronHeader
+    
+    h1 Search For Artwork
+
+        form(method="get" action="/artwork")
+            label(for="Title") Title:
+            input(type="text", name="Title", id="Title")
+
+            label(for="Artist") Artist:
+            input(type="text", name="Artist", id="Artist")
+            
+            label(for="category") Category:
+            input(type="text", name="Category", id="category")
+
+            input(type="submit",value="Search",id="") 
