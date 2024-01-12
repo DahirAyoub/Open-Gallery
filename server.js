@@ -166,15 +166,14 @@ function sendRegisterPage(req,res){
 
 
 
-
-async function run(){
-    try{
-        app.listen(3000);
-        console.log("Server running on port 3000");
-    }catch(error){
-        console.log(error.message);
-    }
-
+function run() {
+    app.listen(3000, function(err) {
+        if (err) {
+            console.error('Error starting server:', err);
+            return;
+        }
+        console.log('Server running on port 3000');
+    });
 }
 
 run();

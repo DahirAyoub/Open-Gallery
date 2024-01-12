@@ -45,9 +45,6 @@ router.param("id",async function(req,res,next,value){
 
 async function sendSingleArtwork(req, res) {
     req.artwork.reviews = await req.artwork.findArtworkReviews();
-    console.log(req.session.user.likedArtworks);
-    console.log(req.artwork._id.toString());
-    console.log(req.session.user.likedArtworks.includes(req.artwork._id.toString()))
     res.status(200).render("artwork", { artwork: req.artwork, reviews: req.artwork.reviews ,User:req.session.user});
 }
 
@@ -132,8 +129,6 @@ async function sendLikedArtworks(req,res,next) {
     const user = await User.findById(userId)
     const likedArtworks = await user.getLikedArtworks();
     res.artwork=likedArtworks;
-    console.log(res.artwork);
-    console.log("trying to render the page!")
     res.render("artworks", { artworks: res.artwork, qstring: req.qstring, current: req.query.page, found:res.artwork.length ,User:req.session.user});
 }
 
@@ -147,7 +142,7 @@ async function sendReviewArtworks(req,res,next) {
 
 async function sendSingleArtworkPage(req, res) {
     req.artwork.reviews = await req.artwork.findArtworkReviews();
-    console.log(req.artwork.reviews); // Add this line to log the reviews
+    console.log(req.artwork.reviews); 
     res.status(200).render("artwork", { artwork: req.artwork, reviews: req.artwork.reviews ,User:req.session.user});
 }
 
@@ -232,12 +227,10 @@ async function removeLike(req,res,next){
             return res.status(404).send({ message: "Artwork not found" });
         }
         artwork.likes-=1
-        delete user.likedArtworks[user.likedArtworks.indexOf(artworkId.toString())];
-
+        await User.findByIdAndUpdate(userId, { $pull: { likedArtworks: artworkId } });
         await artwork.save();
-        await user.save();
-        req.session.user = user;
-
+        
+        req.session.user =await User.findById(userId);
         res.status(201).send();
     }catch(error){
         console.error('Error in removing like:', error);
@@ -250,6 +243,9 @@ async function addReview(req, res, next){
         const artworkId = req.params.id;
         const userId = req.session.user._id; 
 
+    
+
+        
         const artwork = await Art.findById(artworkId);
         const user = await User.findById(userId);
 
@@ -261,9 +257,9 @@ async function addReview(req, res, next){
             art: artworkId,
             user: userId,
             username: user.username,
-            reviewText: req.body.reviewText 
+            reviewText: req.body.review
         });
-
+        console.log(newReview);
         artwork.review.push(newReview._id); 
         user.reviews.push(newReview._id); 
 

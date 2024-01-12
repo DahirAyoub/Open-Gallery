@@ -23,6 +23,11 @@ likeBtn.addEventListener('click', function()  {
 document.getElementById('post-btn').addEventListener('click', function() {
     let reviewTextElements = document.getElementsByName('review');
     let reviewText = reviewTextElements.length > 0 ? reviewTextElements[0].value : '';
+    console.log(reviewText);
+    if(reviewText===""){
+        alert("Please enter a non-empty review.");
+        return;
+    }
 
     let itemId = window.location.href.split('/')[4];
     
@@ -36,5 +41,5 @@ document.getElementById('post-btn').addEventListener('click', function() {
     };
     req.open("POST", "/artwork/addReview/" + itemId);
     req.setRequestHeader("Content-Type", "application/json");
-    req.send(JSON.stringify({ reviewText: reviewText }));
+    req.send(JSON.stringify({ review: reviewText }));
 });
